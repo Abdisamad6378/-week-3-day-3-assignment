@@ -144,4 +144,84 @@ function renderNews(category = 'all') {
             title.className = 'news-title';
             
             const link = document.createElement('a');
-            link
+            link.href = article.url;
+            link.target = '_blank';
+            link.textContent = article.title;
+            
+            title.appendChild(link);
+            
+            const meta = document.createElement('div');
+            meta.className = 'news-meta';
+            
+            const source = document.createElement('span');
+            source.className = 'source';
+            source.textContent = article.source;
+            
+            const date = document.createElement('span');
+            date.className = 'date';
+            date.textContent = formatDate(article.date);
+            
+            const readMore = document.createElement('a');
+            readMore.className = 'read-more';
+            readMore.href = article.url;
+            readMore.target = '_blank';
+            readMore.textContent = 'Read More →';
+            
+            meta.appendChild(source);
+            meta.appendChild(date);
+            meta.appendChild(readMore);
+            
+            item.appendChild(title);
+            item.appendChild(meta);
+            
+            newsList.appendChild(item);
+        });
+        
+        loadingIndicator.style.display = 'none';
+        
+    } catch (error) {
+        showError('Failed to load news articles');
+        loadingIndicator.style.display = 'none';
+    }
+}
+
+// ============================================
+// SHOW ERROR
+// ============================================
+function showError(message) {
+    errorMessage.textContent = '❌ ' + message;
+    errorMessage.style.display = 'block';
+    newsList.innerHTML = '';
+}
+
+// ============================================
+// CATEGORY FILTER
+// ============================================
+function setCategory(category) {
+    currentCategory = category;
+    
+    // Update active button
+    categoryBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === category) {
+            btn.classList.add('active');
+        }
+    });
+    
+    renderNews(category);
+}
+
+// ============================================
+// EVENT LISTENERS
+// ============================================
+categoryBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const category = this.dataset.category;
+        setCategory(category);
+    });
+});
+
+// ============================================
+// INITIALIZE
+// ============================================
+renderNews('all');
