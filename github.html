@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Profile Viewer</h1>
+        <p class="subtitle">Search for any GitHub user</p>
+        
+        <div class="github-card">
+            <!-- Search -->
+            <div class="search-group">
+                <input type="text" id="usernameInput" placeholder="Enter GitHub username..." />
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <!-- Loading -->
+            <div id="githubLoading" class="loading" style="display: none;">
+                <span class="spinner"></span>
+                Fetching profile data...
+            </div>
+
+            <!-- Error -->
+            <div id="githubError" class="error-message" style="display: none;"></div>
+
+            <!-- Profile -->
+            <div id="profileContainer" style="display: none;">
+                <div class="profile-header">
+                    <img id="avatar" class="avatar" src="" alt="Avatar" />
+                    <div class="profile-info">
+                        <h2 id="profileName">Name</h2>
+                        <p id="profileBio" class="bio">Bio</p>
+                        <div class="stats">
+                            <span class="stat">
+                                <span class="stat-value" id="followers">0</span>
+                                <span class="stat-label">Followers</span>
+                            </span>
+                            <span class="stat">
+                                <span class="stat-value" id="following">0</span>
+                                <span class="stat-label">Following</span>
+                            </span>
+                            <span class="stat">
+                                <span class="stat-value" id="publicRepos">0</span>
+                                <span class="stat-label">Repositories</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="repos-section">
+                    <h3>Top Repositories</h3>
+                    <div id="repoList" class="repo-list">
+                        <!-- Repositories rendered here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="github.js"></script>
+</body>
+</html>
