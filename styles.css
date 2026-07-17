@@ -392,3 +392,187 @@ h1 {
 .repo-item .repo-meta .language {
     color: #667eea;
 }
+
+/* 
+   TASK 3: NEWS AGGREGATOR
+    */
+
+.news-card {
+    background: white;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.category-btn {
+    padding: 8px 20px;
+    background: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.category-btn:hover {
+    background: #e0e0e0;
+}
+
+.category-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.category-btn.active:hover {
+    background: #5a67d8;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.news-item {
+    padding: 18px 22px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.news-item .news-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.news-item .news-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.news-item .news-title a:hover {
+    color: #667eea;
+}
+
+.news-item .news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.news-item .news-meta .source {
+    color: #667eea;
+    font-weight: 500;
+}
+
+.news-item .news-meta .date {
+    color: #999;
+}
+
+.news-item .news-meta .read-more {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-item .news-meta .read-more:hover {
+    text-decoration: underline;
+}
+
+.news-empty {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+}
+
+/* 
+   RESPONSIVE DESIGN
+    */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .converter-card,
+    .github-card,
+    .news-card {
+        padding: 20px;
+    }
+    
+    .currency-group {
+        flex-direction: column;
+    }
+    
+    .swap-btn {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+    
+    .search-group {
+        flex-direction: column;
+    }
+    
+    .category-filter {
+        justify-content: center;
+    }
+    
+    .news-item .news-meta {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .stats {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .stat {
+        min-width: 70px;
+    }
+    
+    .category-btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+}

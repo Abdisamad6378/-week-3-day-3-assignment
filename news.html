@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>News Aggregator</h1>
+        <p class="subtitle">Top headlines from around the world</p>
+        
+        <div class="news-card">
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+                <button class="category-btn" data-category="business">Business</button>
+                <button class="category-btn" data-category="sports">Sports</button>
+                <button class="category-btn" data-category="health">Health</button>
+            </div>
+
+            <!-- Loading -->
+            <div id="newsLoading" class="loading" style="display: none;">
+                <span class="spinner"></span>
+                Loading headlines...
+            </div>
+
+            <!-- Error -->
+            <div id="newsError" class="error-message" style="display: none;"></div>
+
+            <!-- News List -->
+            <div id="newsList" class="news-list">
+                <!-- News articles rendered here -->
+            </div>
+        </div>
+    </div>
+    <script src="news.js"></script>
+</body>
+</html>
