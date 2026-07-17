@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Live exchange rates powered by open.er-api.com</p>
+        
+        <div class="converter-card">
+            <!-- Amount Input -->
+            <div class="input-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" value="1" min="0" step="0.01" />
+            </div>
+
+            <!-- Currency Selectors -->
+            <div class="currency-group">
+                <div class="currency-select">
+                    <label for="fromCurrency">From</label>
+                    <select id="fromCurrency">
+                        <option value="KES">KES - Kenyan Shilling</option>
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="TZS">TZS - Tanzanian Shilling</option>
+                        <option value="UGX">UGX - Ugandan Shilling</option>
+                    </select>
+                </div>
+
+                <button id="swapBtn" class="swap-btn">⇄</button>
+
+                <div class="currency-select">
+                    <label for="toCurrency">To</label>
+                    <select id="toCurrency">
+                        <option value="KES">KES - Kenyan Shilling</option>
+                        <option value="USD" selected>USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="TZS">TZS - Tanzanian Shilling</option>
+                        <option value="UGX">UGX - Ugandan Shilling</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Convert Button -->
+            <button id="convertBtn" class="convert-btn">Convert</button>
+
+            <!-- Result Display -->
+            <div class="result-display" id="resultDisplay">
+                <div class="result-placeholder">Enter amount and click Convert</div>
+            </div>
+
+            <!-- Loading & Error -->
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <span class="spinner"></span>
+                Fetching latest exchange rates...
+            </div>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- Last Updated -->
+            <div class="last-updated" id="lastUpdated">Rates update daily</div>
+        </div>
+    </div>
+    <script src="currency.js"></script>
+</body>
+</html>
